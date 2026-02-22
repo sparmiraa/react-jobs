@@ -1,0 +1,80 @@
+header {
+  background-color: var(--card-bg);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.authButtons button {
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.btnLogin {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  margin-right: 10px;
+}
+
+.btnLogin:hover {
+  color: var(--primary);
+}
+
+.btnRegister {
+  background: var(--primary);
+  border: none;
+  color: white;
+}
+
+.btnRegister:hover {
+  background: var(--primary-hover);
+}
+
+
+@media (max-width: 480px) {
+  .headerContent {
+    height: 56px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .btnRegister {
+    display: none;
+  }
+
+  .btnLogin {
+    padding: 8px 14px;
+    font-size: 14px;
+    background: var(--primary);
+    color: white;
+    border-radius: var(--border-radius);
+  }
+
+  .btnLogin:hover {
+    background: var(--primary-hover);
+    color: white;
+  }
+}

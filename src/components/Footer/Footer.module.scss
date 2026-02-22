@@ -1,0 +1,99 @@
+footer {
+  background-color: #111827;
+  color: #f3f4f6;
+  padding: 60px 0 20px 0;
+  margin-top: auto;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footerBrand {
+  .logo {
+    color: white;
+    font-size: 28px;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+
+  p {
+    color: #9ca3af;
+    font-size: 14px;
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+
+  .footerCol {
+    h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: white;
+      letter-spacing: 0.5px;
+    }
+
+    ul {
+      list-style: none;
+
+      li {
+        margin-bottom: 12px;
+
+        a {
+          color: #9ca3af;
+          text-decoration: none;
+          font-size: 14px;
+          transition: color 0.2s;
+        }
+
+        a:hover {
+          color: white;
+          text-decoration: underline;
+          text-decoration-color: var(--primary);
+          text-underline-offset: 4px;
+        }
+      }
+    }
+  }
+}
+
+.footerBottom {
+  border-top: 1px solid #374151;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.footerLegal a {
+  color: #9ca3af;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.2s;
+}
+
+.footerLegal a:hover {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+  }
+  .footerBottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  .footerLegal a {
+    margin: 0 10px;
+  }
+  .footerGrid {
+    gap: 30px;
+  }
+}

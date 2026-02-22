@@ -1,0 +1,18 @@
+.infoCard {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--primary); 
+}
+
+.infoCard h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+.infoCard p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
