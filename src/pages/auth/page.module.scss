@@ -1,0 +1,100 @@
+.formContainer {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.formContainer h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.formContainer p {
+  color: var(--text-muted);
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #eef2ff;
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.formFooter {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.roleSwitch {
+  margin-top: auto;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 14px;
+  a {
+    color: var(--text-main);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: #d1d5db;
+    text-underline-offset: 4px;
+  }
+  a:hover {
+    color: var(--primary);
+    text-decoration-color: var(--primary);
+  }
+}
+
+.registerLinks {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 1px solid #eef2ff;
+    background: #eef2ff;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+
+  a:hover {
+    background: white;
+    border-color: var(--primary);
+    box-shadow: 0 2px 4px rgba(79, 70, 229, 0.1);
+  }
+}
+
+.forgotPassword {
+  font-size: 13px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.forgotPassword:hover {
+  text-decoration: underline;
+}

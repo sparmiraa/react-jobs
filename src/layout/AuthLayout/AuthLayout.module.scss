@@ -1,0 +1,140 @@
+.imageCandidate {
+  background:
+    linear-gradient(to right, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.4)),
+    url("https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2070&auto=format&fit=crop");
+}
+
+.imageEmployer {
+  background:
+    linear-gradient(to right, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.4)),
+    url("https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop");
+}
+
+.imageLogin {
+  background:
+    linear-gradient(to right, rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.5)),
+    url("https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop");
+}
+
+.authLayout {
+  color: var(--text-main);
+  display: flex;
+  min-height: 100vh;
+}
+
+.formSide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  max-width: 600px;
+}
+
+.brand {
+  margin-bottom: auto;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.imageSide {
+  flex: 1.2;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  padding: 60px;
+  color: white;
+  position: relative;
+}
+
+.imageContent {
+  max-width: 500px;
+  margin-bottom: 50px;
+}
+
+.imageContent h2 {
+  font-size: 44px; 
+  font-weight: 800;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.imageContent p {
+  font-size: 18px;
+  color: #e5e7eb; 
+  line-height: 1.6;
+}
+
+.statsCard {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text-main);
+  border: none;
+  padding: 25px 30px;
+  border-radius: 20px;
+  max-width: 380px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.statIcon {
+  width: 40px;
+  height: 40px;
+  background: #eef2ff;
+  color: var(--primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.statText h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.statText p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.cardDivider {
+  height: 1px;
+  background: #e5e7eb;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .imageSide {
+    display: none;
+  }
+  .formSide {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
