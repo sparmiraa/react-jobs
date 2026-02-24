@@ -2,25 +2,25 @@ import { FieldValues, UseFormSetError } from "react-hook-form";
 
 export function applyServerErrors<T extends FieldValues>(
   error: any,
-  setError: UseFormSetError<T>,
+  setError: UseFormSetError<T>
 ) {
   const status = error?.response?.status;
   const data = error?.response?.data;
 
-  if (status === 409) {
-    setError("root", {
-      type: "server",
-      message: data?.message || "Конфликт данных",
+  if (status === 400 && Array.isArray(data?.errors) && data.errors.length > 0) {
+    data.errors.forEach((err: any) => {
+      setError(err.field as any, {
+        type: "server",
+        message: err.message,
+      });
     });
     return;
   }
 
-  if (status === 400 && data?.errors) {
-    Object.entries(data.errors).forEach(([field, message]) => {
-      setError(field as any, {
-        type: "server",
-        message: message as string,
-      });
+  if (status === 400 && data?.message) {
+    setError("root", {
+      type: "server",
+      message: data.message,
     });
     return;
   }

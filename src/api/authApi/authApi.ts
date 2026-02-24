@@ -10,10 +10,10 @@ export const authApi = {
   login: (data: LoginRequestDto) => publicInstance.post("/auth/login", data),
 
   registerCandidate: (data: RegisterRequestDto) =>
-    publicInstance.post("/auth/register/candidate", data),
+    publicInstance.post("/auth/registration/candidate", data),
 
   registerEmployer: (data: RegisterRequestDto) =>
-    publicInstance.post("/auth/register/employer", data),
+    publicInstance.post("/auth/registration/employer", data),
 
   forgotPassword: (data: ForgotPasswordDto) =>
     publicInstance.post("/auth/forgot-password", data),

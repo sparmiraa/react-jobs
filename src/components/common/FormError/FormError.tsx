@@ -1,3 +1,5 @@
+import styles from "./FormError.module.scss"
+
 type Props = {
   message?: string;
 };
@@ -5,5 +7,5 @@ type Props = {
 export default function FormError({ message }: Props) {
   if (!message) return null;
 
-  return <div>{message}</div>;
+  return <div className={styles.error}> ⚠ {message}</div>;
 }
