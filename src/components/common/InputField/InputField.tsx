@@ -1,4 +1,5 @@
 import styles from "./InputField.module.scss";
+import React from "react";
 
 type Props = {
   label?: string;
@@ -6,7 +7,7 @@ type Props = {
   headerRight?: React.ReactNode;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-export default function InputField({ label, error, headerRight, ...props }: Props) {
+export default function InputField({label, error, headerRight, ...props}: Props) {
   return (
     <div className={styles.inputGroup}>
       {(label || headerRight) && (

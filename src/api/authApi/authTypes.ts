@@ -1,3 +1,7 @@
+export type AuthTokenResponseDto = {
+  accessToken: string;
+};
+
 export type LoginRequestDto = {
   email: string;
   password: string;

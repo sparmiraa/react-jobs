@@ -1,12 +1,15 @@
 import AuthForm from "../../components/auth/AuthForm/AuthForm";
-import { authApi } from "../../api/authApi/authApi";
-import { RegisterRequestDto } from "../../api/authApi/authTypes";
+import {authApi} from "../../api/authApi/authApi";
+import {RegisterRequestDto} from "../../api/authApi/authTypes";
 import styles from "./page.module.scss";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import {accessTokenService} from "../../services/localStorage/accessTokenService";
+import {page} from "../../constants/page";
 
 export function EmployerRegistrationPage() {
   const handleRegister = async (data: RegisterRequestDto): Promise<void> => {
-    await authApi.registerEmployer(data);
+    const authTokenResponseDto = await authApi.registerEmployer(data);
+    accessTokenService.set(authTokenResponseDto.accessToken);
   };
   return (
     <>
@@ -35,7 +38,7 @@ export function EmployerRegistrationPage() {
             },
             {
               name: "email",
-              label: "Рабочая электронная почта",
+              label: "Электронная почта",
               placeholder: "company@gmail.com",
               validation: {
                 required: "Email обязателен",
@@ -62,12 +65,8 @@ export function EmployerRegistrationPage() {
         />
 
         <div className={styles.formFooter}>
-          Уже есть аккаунт? <Link to="/auth/login">Войти</Link>
+          Уже есть аккаунт? <Link to={page.login}>Войти</Link>
         </div>
-      </div>
-
-      <div className={styles.roleSwitch}>
-        Вы ищете работу? <Link to="/auth/registration/candidate">Зарегистрироваться как кандидат</Link>
       </div>
     </>
   );
