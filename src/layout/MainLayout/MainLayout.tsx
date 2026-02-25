@@ -6,7 +6,7 @@ import styles from "./MainLayout.module.scss"
 export default function MainLayout() {
   return (
     <div className={styles.wrapper}>
-      <Header/>
+      <Header />
 
       <div className={styles.content}>
         <Outlet/>

@@ -3,8 +3,10 @@ import StatCard from "../../components/home/StatCard/StatCard";
 import InfoCard from "../../components/home/InfoCard/InfoCard";
 import styles from "./Home.module.scss";
 import {page} from "../../constants/page";
+import {useAppSelector} from "../../redux/store";
 
 export default function Home() {
+  const role = useAppSelector((s) => s.auth.user?.role);
   return (
     <>
       <section className={styles.hero}>
@@ -18,12 +20,32 @@ export default function Home() {
             важно.
           </p>
           <div className={styles.heroButtons}>
-            <Link to={page.candidateRegistration} className="btnLarge btnPrimary">
-              Найти работу
-            </Link>
-            <Link to={page.employerRegistration} className="btnLarge btnOutline">
-              Разместить вакансию
-            </Link>
+            {
+              !role &&
+              <>
+                <Link to={page.candidateRegistration} className="btnLarge btnPrimary">
+                  Найти работу
+                </Link>
+                <Link to={page.employerRegistration} className="btnLarge btnOutline">
+                  Разместить вакансию
+                </Link>
+              </>
+            }
+
+            {
+              role === "CANDIDATE" &&
+              <Link to={page.vacancies} className="btnLarge btnPrimary">
+                Смотреть вакансии
+              </Link>
+            }
+
+            {
+              role === "EMPLOYER" &&
+              <Link to={page.myVacancies} className="btnLarge btnPrimary">
+                Добавить вакансию
+              </Link>
+            }
+
           </div>
         </div>
       </section>

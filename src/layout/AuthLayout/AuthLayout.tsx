@@ -1,11 +1,16 @@
-import {Outlet, Link, useLocation} from "react-router-dom";
+import {Outlet, Link, useLocation, Navigate} from "react-router-dom";
 import styles from "./AuthLayout.module.scss";
 import RoleSwitch from "../../components/auth/RoleSwitch/RoleSwitch";
 import SideImage from "../../components/auth/SideImage/SideImage";
 import {page} from "../../constants/page";
 import {AuthFormModeType} from "../../components/auth/types";
+import {accessTokenService} from "../../services/localStorage/accessTokenService";
 
 export default function AuthLayout() {
+  if (accessTokenService.isExists()) {
+    return <Navigate to={page.home}/>
+  }
+
   const location = useLocation();
 
   const extractFormModeFromPath = (): AuthFormModeType => {

@@ -2,15 +2,23 @@ import AuthForm from "../../components/auth/AuthForm/AuthForm";
 import {authApi} from "../../api/authApi/authApi";
 import {RegisterRequestDto} from "../../api/authApi/authTypes";
 import styles from "./page.module.scss";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {accessTokenService} from "../../services/localStorage/accessTokenService";
 import {page} from "../../constants/page";
+import { getMeThunk } from "../../redux/user/userThunks";
+import { useAppDispatch } from "../../redux/store";
 
 export function EmployerRegistrationPage() {
-  const handleRegister = async (data: RegisterRequestDto): Promise<void> => {
-    const authTokenResponseDto = await authApi.registerEmployer(data);
-    accessTokenService.set(authTokenResponseDto.accessToken);
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const handleRegister = async (data: RegisterRequestDto) => {
+      const res = await authApi.registerEmployer(data);
+      accessTokenService.set(res.accessToken);
+      await dispatch(getMeThunk());
+      navigate("/my-vacancies", { replace: true });
   };
+
   return (
     <>
       <div className={styles.formContainer}>
