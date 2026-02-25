@@ -5,7 +5,7 @@ type InfoCardProps = {
   content: string;
 };
 
-export default function InfoCard({ title, content }: InfoCardProps) {
+export default function InfoCard({title, content}: InfoCardProps) {
   return (
     <div className={styles.infoCard}>
       <h2>{title}</h2>

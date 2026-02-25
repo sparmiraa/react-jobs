@@ -5,7 +5,7 @@ type StatCardProps = {
   label: string;
 };
 
-export default function StatCard({ number, label }: StatCardProps) {
+export default function StatCard({number, label}: StatCardProps) {
   return (
     <div className={styles.statCard}>
       <div className={styles.statNumber}>{number}</div>

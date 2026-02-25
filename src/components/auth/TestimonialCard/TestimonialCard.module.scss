@@ -1,42 +1,32 @@
 .testimonialCard {
   background: rgba(
-    255,
-    255,
-    255,
-    0.95
-  ); 
-  color: var(--text-main); 
+                  255,
+                  255,
+                  255,
+                  0.95
+  );
+  color: var(--text-main);
   border: none;
-  padding: 30px; 
-  border-radius: 20px; 
+  padding: 30px;
+  border-radius: 20px;
   max-width: 420px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); 
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   position: relative;
-  transform: translateY(20px); 
-}
-
-.testimonialCard::after {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 40px;
-  border-width: 0 10px 10px 10px;
-  border-style: solid;
-  border-color: transparent transparent rgba(255, 255, 255, 0.95) transparent;
+  transform: translateY(20px);
 }
 
 .stars {
-  color: #f59e0b; 
+  color: #f59e0b;
   font-size: 18px;
   margin-bottom: 15px;
-  letter-spacing: 2px; 
+  letter-spacing: 2px;
 }
 
 .testimonialText {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 20px;
-  font-style: normal; 
+  font-style: normal;
   color: #374151;
 }
 
@@ -44,12 +34,12 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  border-top: 1px solid #e5e7eb; 
+  border-top: 1px solid #e5e7eb;
   padding-top: 15px;
 }
 
 .userAvatar {
-  width: 48px; 
+  width: 48px;
   height: 48px;
   border-radius: 50%;
   background: #e5e7eb;

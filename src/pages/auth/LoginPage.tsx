@@ -1,12 +1,15 @@
 import AuthForm from "../../components/auth/AuthForm/AuthForm";
-import { authApi } from "../../api/authApi/authApi";
-import { LoginRequestDto } from "../../api/authApi/authTypes";
+import {authApi} from "../../api/authApi/authApi";
+import {LoginRequestDto} from "../../api/authApi/authTypes";
 import styles from "./page.module.scss";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import {page} from "../../constants/page";
+import {accessTokenService} from "../../services/localStorage/accessTokenService";
 
 export function LoginPage() {
   const handleLogin = async (data: LoginRequestDto): Promise<void> => {
-    await authApi.login(data);
+    const authTokenResponseDto = await authApi.login(data);
+    accessTokenService.set(authTokenResponseDto.accessToken);
   };
   return (
     <>
@@ -37,7 +40,7 @@ export function LoginPage() {
               placeholder: "Минимум 8 символов",
               headerRight: (
                 <Link
-                  to="/auth/forgot-password"
+                  to={page.forgotPassword}
                   className={styles.forgotPassword}
                 >
                   Забыли пароль?
@@ -54,13 +57,6 @@ export function LoginPage() {
           ]}
         />
 
-        <div className={styles.formFooter}>
-          Впервые на JobSpace?
-          <div className={styles.registerLinks}>
-            <Link to="/auth/registration/candidate">Я ищу работу</Link>
-            <Link to="/auth/registration/employer">Я ищу сотрудников</Link>
-          </div>
-        </div>
       </div>
     </>
   );

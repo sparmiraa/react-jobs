@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
-import StatCard from "../../components/StatCard/StatCard";
-import InfoCard from "../../components/InfoCard/InfoCard";
+import {Link} from "react-router-dom";
+import StatCard from "../../components/home/StatCard/StatCard";
+import InfoCard from "../../components/home/InfoCard/InfoCard";
 import styles from "./Home.module.scss";
+import {page} from "../../constants/page";
 
 export default function Home() {
   return (
@@ -17,10 +18,10 @@ export default function Home() {
             важно.
           </p>
           <div className={styles.heroButtons}>
-            <Link to="/" className="btnLarge btnPrimary">
+            <Link to={page.candidateRegistration} className="btnLarge btnPrimary">
               Найти работу
             </Link>
-            <Link to="/" className="btnLarge btnOutline">
+            <Link to={page.employerRegistration} className="btnLarge btnOutline">
               Разместить вакансию
             </Link>
           </div>
@@ -29,9 +30,9 @@ export default function Home() {
 
       <section className={styles.statsSection}>
         <div className={`container ${styles.stats}`}>
-          <StatCard number={"150+"} label={"Компаний доверяют нам"} />
-          <StatCard number={"430"} label={"Активных вакансий"} />
-          <StatCard number={"1,200+"} label={"Специалистов нашли работу"} />
+          <StatCard number={"150+"} label={"Компаний доверяют нам"}/>
+          <StatCard number={"430"} label={"Активных вакансий"}/>
+          <StatCard number={"1,200+"} label={"Специалистов нашли работу"}/>
         </div>
       </section>
 

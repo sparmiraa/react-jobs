@@ -1,4 +1,4 @@
-import { FieldValues, UseFormSetError } from "react-hook-form";
+import {FieldValues, UseFormSetError} from "react-hook-form";
 
 export function applyServerErrors<T extends FieldValues>(
   error: any,

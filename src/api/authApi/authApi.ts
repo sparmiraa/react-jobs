@@ -1,19 +1,29 @@
-import { publicInstance } from "../axios";
+import {publicInstance} from "../axios";
 import {
   LoginRequestDto,
   RegisterRequestDto,
   ForgotPasswordDto,
-  ResetPasswordDto,
+  ResetPasswordDto, AuthTokenResponseDto,
 } from "./authTypes";
 
 export const authApi = {
-  login: (data: LoginRequestDto) => publicInstance.post("/auth/login", data),
+  login: async (data: LoginRequestDto) => {
+    const responseDto =
+      await publicInstance.post<AuthTokenResponseDto>("/auth/login", data)
+    return responseDto.data as AuthTokenResponseDto;
+  },
 
-  registerCandidate: (data: RegisterRequestDto) =>
-    publicInstance.post("/auth/registration/candidate", data),
+  registerCandidate: async (data: RegisterRequestDto) => {
+    const responseDto =
+      await publicInstance.post<AuthTokenResponseDto>("/auth/registration/candidate", data);
+    return responseDto.data as AuthTokenResponseDto;
+  },
 
-  registerEmployer: (data: RegisterRequestDto) =>
-    publicInstance.post("/auth/registration/employer", data),
+  registerEmployer: async (data: RegisterRequestDto) => {
+    const responseDto =
+      await publicInstance.post<AuthTokenResponseDto>("/auth/registration/employer", data)
+    return responseDto.data as AuthTokenResponseDto;
+  },
 
   forgotPassword: (data: ForgotPasswordDto) =>
     publicInstance.post("/auth/forgot-password", data),
