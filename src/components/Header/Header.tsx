@@ -9,8 +9,13 @@ export default function Header() {
           JobSpace
         </Link>
         <div className={styles.authButtons}>
-          <button className={styles.btnLogin}>Войти</button>
-          <button className={styles.btnRegister}>Регистрация</button>
+          <Link to="/auth/login">
+            <button className={styles.btnLogin}>Войти</button>
+          </Link>
+
+          <Link to="/auth/registration/candidate">
+            <button className={styles.btnRegister}>Регистрация</button>
+          </Link>
         </div>
       </div>
     </header>
