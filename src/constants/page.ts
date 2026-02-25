@@ -6,11 +6,13 @@ export const page = {
   forgotPassword: "/auth/forgot-password",
   notFound: "/not-found",
 
-  candidateProfile: "/candidate/profile",
+  // candidate links
+  companies: "/companies",
   vacancies: "/vacancies",
-  myApplies: "/my-applies",
+  candidateMyApplies: "/candidate/my-applies",
 
-  employerProfile: "/employer/profile",
+  // employer links
+  employerMyApplies: "/employer/my-applies",
   candidateBase: "/candidate-base",
   myVacancies: "/my-vacancies",
 };

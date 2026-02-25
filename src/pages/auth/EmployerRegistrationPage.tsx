@@ -13,17 +13,10 @@ export function EmployerRegistrationPage() {
   const dispatch = useAppDispatch();
 
   const handleRegister = async (data: RegisterRequestDto) => {
-    try {
       const res = await authApi.registerEmployer(data);
-
       accessTokenService.set(res.accessToken);
-
       await dispatch(getMeThunk());
-
       navigate("/my-vacancies", { replace: true });
-    } catch (e) {
-      console.error("Registration failed:", e);
-    }
   };
 
   return (

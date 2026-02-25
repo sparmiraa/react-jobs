@@ -1,4 +1,7 @@
 export const accessTokenService = {
+  isExists(): boolean {
+    return localStorage.getItem("accessToken") !== null;
+  },
   get(): string | null {
     return localStorage.getItem("accessToken");
   },

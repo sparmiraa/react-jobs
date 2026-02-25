@@ -1,12 +1,9 @@
-import { NavLink, Link } from "react-router-dom";
+import {NavLink, Link} from "react-router-dom";
 
 import styles from "./Header.module.scss";
-import { page } from "../../../constants/page";
-import { MeResponseDto } from "../../../api/authApi/authTypes";
-
-interface Props {
-  user?: MeResponseDto | null;
-}
+import {page} from "../../../constants/page";
+import {MeResponseDto} from "../../../api/authApi/authTypes";
+import {useAppSelector} from "../../../redux/store";
 
 const roleNames: Record<string, string> = {
   CANDIDATE: "Кандидат",
@@ -14,7 +11,8 @@ const roleNames: Record<string, string> = {
   ADMIN: "Админ",
 };
 
-export default function Header({ user }: Props) {
+export default function Header() {
+  const user = useAppSelector((s) => s.auth.user);
   const getAvatar = (user: MeResponseDto) => {
     return user.name.slice(0, 1).toUpperCase();
   };
@@ -30,11 +28,13 @@ export default function Header({ user }: Props) {
           <div className={styles.authButtons}>
             <Link to={page.login}>
               {" "}
-              <button className={styles.btnLogin}>Войти</button>{" "}
+              <button className={styles.btnLogin}>Войти</button>
+              {" "}
             </Link>{" "}
             <Link to={page.candidateRegistration}>
               {" "}
-              <button className={styles.btnRegister}>Регистрация</button>{" "}
+              <button className={styles.btnRegister}>Регистрация</button>
+              {" "}
             </Link>
           </div>
         )}
@@ -45,27 +45,27 @@ export default function Header({ user }: Props) {
               <nav className={styles.mainNav}>
                 <NavLink
                   to={page.vacancies}
-                  className={({ isActive }) =>
+                  className={({isActive}) =>
                     isActive ? styles.active : undefined
                   }
                 >
                   Вакансии
                 </NavLink>
                 <NavLink
-                  to={page.myApplies}
-                  className={({ isActive }) =>
+                  to={page.companies}
+                  className={({isActive}) =>
+                    isActive ? styles.active : undefined
+                  }
+                >
+                  Компании
+                </NavLink>
+                <NavLink
+                  to={page.candidateMyApplies}
+                  className={({isActive}) =>
                     isActive ? styles.active : undefined
                   }
                 >
                   Мои отклики
-                </NavLink>
-                <NavLink
-                  to={page.candidateProfile}
-                  className={({ isActive }) =>
-                    isActive ? styles.active : undefined
-                  }
-                >
-                  Профиль
                 </NavLink>
               </nav>
             )}
@@ -74,7 +74,7 @@ export default function Header({ user }: Props) {
               <nav className={styles.mainNav}>
                 <NavLink
                   to={page.candidateBase}
-                  className={({ isActive }) =>
+                  className={({isActive}) =>
                     isActive ? styles.active : undefined
                   }
                 >
@@ -82,19 +82,19 @@ export default function Header({ user }: Props) {
                 </NavLink>
                 <NavLink
                   to={page.myVacancies}
-                  className={({ isActive }) =>
+                  className={({isActive}) =>
                     isActive ? styles.active : undefined
                   }
                 >
                   Мои вакансии
                 </NavLink>
                 <NavLink
-                  to={page.employerProfile}
-                  className={({ isActive }) =>
+                  to={page.employerMyApplies}
+                  className={({isActive}) =>
                     isActive ? styles.active : undefined
                   }
                 >
-                  Профиль
+                  Отклики
                 </NavLink>
               </nav>
             )}
