@@ -21,3 +21,11 @@ export type ResetPasswordDto = {
   token: string;
   password: string;
 };
+
+export type UserRole = "ADMIN" | "CANDIDATE" | "EMPLOYER";
+
+export type MeResponseDto = {
+  id: number;
+  name: string;
+  role: UserRole;
+};

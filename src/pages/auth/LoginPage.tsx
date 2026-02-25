@@ -1,15 +1,35 @@
 import AuthForm from "../../components/auth/AuthForm/AuthForm";
-import {authApi} from "../../api/authApi/authApi";
-import {LoginRequestDto} from "../../api/authApi/authTypes";
+import { authApi } from "../../api/authApi/authApi";
+import { LoginRequestDto } from "../../api/authApi/authTypes";
 import styles from "./page.module.scss";
-import {Link} from "react-router-dom";
-import {page} from "../../constants/page";
-import {accessTokenService} from "../../services/localStorage/accessTokenService";
+import { Link, useNavigate } from "react-router-dom";
+import { page } from "../../constants/page";
+import { accessTokenService } from "../../services/localStorage/accessTokenService";
+import { useAppDispatch } from "../../redux/store";
+import { getMeThunk } from "../../redux/user/userThunks";
 
 export function LoginPage() {
-  const handleLogin = async (data: LoginRequestDto): Promise<void> => {
-    const authTokenResponseDto = await authApi.login(data);
-    accessTokenService.set(authTokenResponseDto.accessToken);
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const handleLogin = async (data: LoginRequestDto) => {
+    try {
+      const res = await authApi.login(data);
+
+      accessTokenService.set(res.accessToken);
+
+      const user = await dispatch(getMeThunk()).unwrap();
+
+      if (user.role === "EMPLOYER") {
+        navigate("/my-vacancies", { replace: true });
+      } else if (user.role === "CANDIDATE") {
+        navigate("/vacancies", { replace: true });
+      } else {
+        navigate("/", { replace: true });
+      }
+    } catch (e) {
+      console.error("Registration failed:", e);
+    }
   };
   return (
     <>
@@ -56,7 +76,6 @@ export function LoginPage() {
             },
           ]}
         />
-
       </div>
     </>
   );
