@@ -1,7 +1,7 @@
-import {UpdateEmployerBio} from "../../../api/employerApi/employerTypes";
-import {useEffect, useState} from "react";
-import {useForm} from "react-hook-form";
-import {employerApi} from "../../../api/employerApi/employerApi";
+import { UpdateEmployerBio } from "../../../api/employerApi/employerTypes";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { employerApi } from "../../../api/employerApi/employerApi";
 import styles from "../../../pages/candidate/CandidateEditPage/CandidateProfilePage.module.scss";
 
 type Props = {
@@ -9,22 +9,21 @@ type Props = {
   setEmployerBio: (v: UpdateEmployerBio) => void;
 };
 
-export default function EmployerBio({employerBio, setEmployerBio}: Props) {
-
+export default function EmployerBio({ employerBio, setEmployerBio }: Props) {
   const [isEditing, setIsEditing] = useState(false);
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: {isDirty, isSubmitting}
+    formState: { isDirty, isSubmitting },
   } = useForm<UpdateEmployerBio>();
   useEffect(() => {
     reset(employerBio);
   }, [employerBio]);
 
   const onSubmit = async (values: UpdateEmployerBio) => {
-
+    console.log(values);
     await employerApi.updateEmployerBio(values);
 
     setEmployerBio(values);
@@ -44,7 +43,6 @@ export default function EmployerBio({employerBio, setEmployerBio}: Props) {
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-
         <div className={`${styles.formGroup} ${styles.fullWidth}`}>
           <label className={styles.formLabel}>Количество работников</label>
           <input
@@ -53,11 +51,10 @@ export default function EmployerBio({employerBio, setEmployerBio}: Props) {
             disabled={!isEditing}
             placeholder="Например: 50"
             {...register("employeesCount", {
-              setValueAs: (v) => v === "" ? null : Number(v),
+              setValueAs: (v) => (v === "" || v === null ? null : Number(v)),
             })}
           />
         </div>
-
 
         <div className={styles.formGroup}>
           <label className={styles.formLabel}>Короткое описание</label>
@@ -90,9 +87,10 @@ export default function EmployerBio({employerBio, setEmployerBio}: Props) {
             </button>
           ) : (
             <>
-              <button type="button"
-                      className={styles.btnSecondary}
-                      onClick={cancel}
+              <button
+                type="button"
+                className={styles.btnSecondary}
+                onClick={cancel}
               >
                 Отмена
               </button>
@@ -107,7 +105,6 @@ export default function EmployerBio({employerBio, setEmployerBio}: Props) {
             </>
           )}
         </div>
-
       </form>
     </section>
   );

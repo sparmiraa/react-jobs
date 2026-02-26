@@ -1,15 +1,21 @@
-import React, {useEffect, useState} from 'react';
-import {employerApi} from "../../../api/employerApi/employerApi";
-import {UpdateEmployerBio, UpdateEmployerInfo} from "../../../api/employerApi/employerTypes";
+import React, { useEffect, useState } from "react";
+import { employerApi } from "../../../api/employerApi/employerApi";
+import {
+  UpdateEmployerBio,
+  UpdateEmployerInfo,
+} from "../../../api/employerApi/employerTypes";
 import styles from "../../candidate/CandidateEditPage/CandidateProfilePage.module.scss";
 import EmployerInfo from "../../../components/employer/EmployerInfo/EmployerInfo";
 import EmployerBio from "../../../components/employer/EmployerBio/EmployerBio";
 
 export default function EmployerEditPage() {
+  const [employerInfo, setEmployerInfo] = useState<UpdateEmployerInfo>(
+    {} as UpdateEmployerInfo,
+  );
 
-  const [employerInfo, setEmployerInfo] = useState<UpdateEmployerInfo>({} as UpdateEmployerInfo);
-
-  const [employerBio, setEmployerBio] = useState<UpdateEmployerBio>({} as UpdateEmployerBio);
+  const [employerBio, setEmployerBio] = useState<UpdateEmployerBio>(
+    {} as UpdateEmployerBio,
+  );
 
   useEffect(() => {
     const fetchEmployer = async () => {
@@ -23,7 +29,7 @@ export default function EmployerEditPage() {
       });
 
       setEmployerBio({
-        employeesCount: responseDto.employeesCount ?? "",
+        employeesCount: responseDto.employees_count ?? "",
         shortBio: responseDto.shortBio ?? "",
         bio: responseDto.bio ?? "",
       });
@@ -36,8 +42,19 @@ export default function EmployerEditPage() {
     <div className={styles.container}>
       <aside className={styles.pageNav}>
         <ul className={styles.pageNavList}>
-          <li><a href="#info" className={`${styles.pageNavLink} ${styles.active}`}>Основная информация</a></li>
-          <li><a href="#about" className={styles.pageNavLink}>О компании</a></li>
+          <li>
+            <a
+              href="#info"
+              className={`${styles.pageNavLink} ${styles.active}`}
+            >
+              Основная информация
+            </a>
+          </li>
+          <li>
+            <a href="#about" className={styles.pageNavLink}>
+              О компании
+            </a>
+          </li>
         </ul>
       </aside>
 

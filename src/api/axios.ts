@@ -1,12 +1,12 @@
 import axios from "axios";
 
 export const publicInstance = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "http://localhost:5001/api",
   withCredentials: true,
 });
 
 export const privateInstance = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "http://localhost:5001/api",
   withCredentials: true,
 });
 

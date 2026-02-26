@@ -8,7 +8,7 @@ export type EmployerProfileDTO = {
   type_id: number;
   bio: string | null;
   shortBio: string | null;
-  employeesCount: number | null;
+  employees_count: number | null;
 }
 
 export type UpdateEmployerInfo = {
