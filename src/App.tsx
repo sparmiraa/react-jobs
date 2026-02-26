@@ -15,6 +15,8 @@ import CandidateBase from "./pages/employer/CandidateBase/CandidateBase";
 import MyVacancies from "./pages/employer/MyVacancies/MyVacancies";
 import PublicLayout from "./layout/PublicLayout/PublicLayout";
 import EmployerApplies from "./pages/candidate/EmployerApplies/EmployerApplies";
+import CandidateProfilePage from "./pages/candidate/CandidateEditPage/CandidateProfilePage";
+import EmployerEditPage from "./pages/employer/EmployerEditPage/EmployerEditPage";
 
 function App() {
 
@@ -38,12 +40,14 @@ function App() {
         <Route element={<MainLayout/>}>
           <Route index element={<Home/>}/>
           <Route element={<RoleProtected allow={["CANDIDATE", "ADMIN"]}/>}>
+            <Route path="/candidate/edit" element={<CandidateProfilePage/>}/>
             <Route path="/candidate/my-applies" element={<CandidateApplies/>}/>
             <Route path="companies" element={<CompaniesProfilePage/>}/>
             <Route path="vacancies" element={<Vacancies/>}/>
           </Route>
 
           <Route element={<RoleProtected allow={["EMPLOYER", "ADMIN"]}/>}>
+            <Route path="/employer/edit" element={<EmployerEditPage/>}/>
             <Route path="employer/my-applies" element={<EmployerApplies/>}/>
             <Route path="candidate-base" element={<CandidateBase/>}/>
             <Route path="my-vacancies" element={<MyVacancies/>}/>
