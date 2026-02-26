@@ -1,4 +1,5 @@
 import styles from "./Button.module.scss"
+import React from "react";
 
 type Props = {
   loading?: boolean;

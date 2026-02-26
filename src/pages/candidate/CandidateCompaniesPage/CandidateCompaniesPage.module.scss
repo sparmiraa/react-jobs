@@ -1,0 +1,221 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.searchSection {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  margin-bottom: 40px;
+  text-align: center;
+
+  h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--text-main);
+  }
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-bottom: 25px;
+}
+
+.searchBar {
+  display: flex;
+  gap: 15px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.searchInputWrap {
+  flex: 1;
+}
+
+.searchBtnWrap {
+  width: 220px;
+  display: flex;
+}
+
+.companiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.companyCard {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: #d1d5db;
+  }
+}
+
+.companyHeader {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.companyLogo {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.bgBlue {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+.bgPurple {
+  background: linear-gradient(135deg, #a855f7, #7e22ce);
+}
+.bgGreen {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+.bgOrange {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+}
+.bgDark {
+  background: linear-gradient(135deg, #374151, #111827);
+}
+
+.companyInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.companyTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+.verifiedBadge {
+  color: #3b82f6;
+  font-size: 14px;
+}
+
+.companyIndustry {
+  font-size: 13px;
+  color: var(--text-muted);
+  background: var(--input-bg);
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.companyDesc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+  flex-grow: 1;
+  line-height: 1.6;
+}
+
+.companyFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.vacanciesCount {
+  font-size: 14px;
+  font-weight: 700;
+  color: #059669;
+}
+
+.empty {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.btnView {
+  padding: 8px 16px;
+  background-color: white;
+  color: var(--text-main);
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+
+  &:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: #eef2ff;
+  }
+}
+
+.loadMoreContainer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btnLoadMore {
+  background: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--text-main);
+  padding: 12px 30px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover:not(:disabled) {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: #eef2ff;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@media (max-width: 768px) {
+  .searchBar {
+    flex-direction: column;
+  }
+
+  .searchBtnWrap {
+    width: 100%;
+  }
+
+  .companiesGrid {
+    grid-template-columns: 1fr;
+  }
+}
