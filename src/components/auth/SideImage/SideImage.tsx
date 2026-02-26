@@ -1,20 +1,23 @@
-import React from 'react';
+import React from "react";
 import styles from "./SideImage.module.scss";
 import TestimonialCard from "../TestimonialCard/TestimonialCard";
-import {AuthFormModeType} from "../types";
+import { AuthFormModeType } from "../types";
 
 type SideImageProps = {
-  mode: AuthFormModeType,
-}
+  mode: AuthFormModeType;
+};
 
-export default function SideImage({mode}: SideImageProps) {
-
+export default function SideImage({ mode }: SideImageProps) {
   const imageClass = [
     styles.imageSide,
     mode === "candidate" && styles.imageCandidate,
     mode === "employer" && styles.imageEmployer,
     mode === "login" && styles.imageLogin,
-  ].filter(Boolean).join(" ");
+    mode === "forgotPassword" && styles.imageForgotPassword,
+    mode === "resetPassword" && styles.imageResetPassword,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div className={imageClass}>
@@ -66,7 +69,7 @@ export default function SideImage({mode}: SideImageProps) {
               </div>
             </div>
 
-            <div className={styles.cardDivider}/>
+            <div className={styles.cardDivider} />
 
             <div className={styles.statRow}>
               <div className={styles.statIcon}>🚀</div>
@@ -78,7 +81,41 @@ export default function SideImage({mode}: SideImageProps) {
           </div>
         </>
       )}
-    </div>
 
+      {mode === "forgotPassword" && (
+        <>
+          <div className={styles.imageContent}>
+            <h2>Восстановление доступа</h2>
+            <p>Мы отправим ссылку на почту — она будет действовать 1 час.</p>
+          </div>
+
+          <div className={styles.statsCard}>
+            <div className={styles.statRow}>
+              <div className={styles.statIcon}>📩</div>
+              <div className={styles.statText}>
+                <h4>Быстро</h4>
+                <p>Письмо приходит за минуты</p>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
+      {mode === "resetPassword" && (
+        <>
+          <div className={styles.imageContent}>
+            <h2>Новый пароль</h2>
+            <p>Придумайте надежный пароль и подтвердите его.</p>
+          </div>
+
+          <TestimonialCard
+            text="«Сбросил пароль за минуту и сразу вернулся к откликам. Удобно!»"
+            image="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=100&auto=format&fit=crop"
+            name="Илья"
+            jobTitle="Fullstack Developer"
+          />
+        </>
+      )}
+    </div>
   );
-};
+}

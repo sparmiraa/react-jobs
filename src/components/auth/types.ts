@@ -1,1 +1,6 @@
-export type AuthFormModeType = "candidate" | "employer" | "login";
+export type AuthFormModeType =
+  | "login"
+  | "candidate"
+  | "employer"
+  | "forgotPassword"
+  | "resetPassword";

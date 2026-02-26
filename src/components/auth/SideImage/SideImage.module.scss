@@ -1,16 +1,46 @@
 .imageCandidate {
-  background: linear-gradient(to right, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.4)),
-  url("https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2070&auto=format&fit=crop");
+  background: linear-gradient(
+      to right,
+      rgba(17, 24, 39, 0.8),
+      rgba(17, 24, 39, 0.4)
+    ),
+    url("https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2070&auto=format&fit=crop");
 }
 
 .imageEmployer {
-  background: linear-gradient(to right, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.4)),
-  url("https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop");
+  background: linear-gradient(
+      to right,
+      rgba(17, 24, 39, 0.8),
+      rgba(17, 24, 39, 0.4)
+    ),
+    url("https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop");
 }
 
 .imageLogin {
-  background: linear-gradient(to right, rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.5)),
-  url("https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop");
+  background: linear-gradient(
+      to right,
+      rgba(17, 24, 39, 0.85),
+      rgba(17, 24, 39, 0.5)
+    ),
+    url("https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop");
+}
+
+.imageForgotPassword {
+  background: linear-gradient(
+      to right,
+      rgba(17, 24, 39, 0.85),
+      rgba(17, 24, 39, 0.5)
+    ),
+    url("https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=2070&auto=format&fit=crop");
+}
+
+.imageResetPassword {
+  background: linear-gradient(
+      to right,
+      rgba(17, 24, 39, 0.85),
+      rgba(17, 24, 39, 0.5)
+    ),
+    url("https://images.unsplash.com/photo-1633265486064-086b219458ec?q=80&w=2070&auto=format&fit=crop");
 }
 
 .imageSide {

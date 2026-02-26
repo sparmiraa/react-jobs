@@ -29,3 +29,8 @@ export type MeResponseDto = {
   name: string;
   role: UserRole;
 };
+
+export type ForgotPasswordRequestDto = { email: string };
+export type ResetPasswordRequestDto = { newPassword: string };
+
+export type MessageResponseDto = { message: string };

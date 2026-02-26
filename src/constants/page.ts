@@ -4,6 +4,7 @@ export const page = {
   candidateRegistration: "/auth/registration/candidate",
   employerRegistration: "/auth/registration/employer",
   forgotPassword: "/auth/forgot-password",
+  resetPassword: "/auth/reset-password",
   notFound: "/not-found",
 
   // candidate links

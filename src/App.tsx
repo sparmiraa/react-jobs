@@ -17,6 +17,8 @@ import PublicLayout from "./layout/PublicLayout/PublicLayout";
 import EmployerApplies from "./pages/candidate/EmployerApplies/EmployerApplies";
 import CandidateProfilePage from "./pages/candidate/CandidateEditPage/CandidateProfilePage";
 import EmployerEditPage from "./pages/employer/EmployerEditPage/EmployerEditPage";
+import { ForgotPasswordPage } from "./pages/auth/ForgotPasswordPage";
+import { ResetPasswordPage } from "./pages/auth/ResetPasswordPage";
 
 function App() {
 
@@ -28,6 +30,9 @@ function App() {
           <Route path="candidate" element={<CandidateRegistrationPage/>}/>
           <Route path="employer" element={<EmployerRegistrationPage/>}/>
         </Route>
+
+        <Route path="forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="reset-password" element={<ResetPasswordPage />} />
       </Route>
 
       <Route element={<PublicLayout/>}>

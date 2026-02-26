@@ -6,6 +6,9 @@ import {
   ResetPasswordDto,
   AuthTokenResponseDto,
   MeResponseDto,
+  ResetPasswordRequestDto,
+  MessageResponseDto,
+  ForgotPasswordRequestDto,
 } from "./authTypes";
 
 export const authApi = {
@@ -33,11 +36,21 @@ export const authApi = {
     return responseDto.data as AuthTokenResponseDto;
   },
 
-  forgotPassword: (data: ForgotPasswordDto) =>
-    publicInstance.post("/auth/forgot-password", data),
+  forgotPassword: async (dto: ForgotPasswordRequestDto) => {
+    const { data } = await publicInstance.post<MessageResponseDto>(
+      "/auth/forgot-password",
+      dto
+    );
+    return data;
+  },
 
-  resetPassword: (data: ResetPasswordDto) =>
-    publicInstance.post("/auth/reset-password", data),
+  resetPassword: async (requestId: string, dto: ResetPasswordRequestDto) => {
+    const { data } = await publicInstance.post<MessageResponseDto>(
+      `/auth/reset-password?requestId=${encodeURIComponent(requestId)}`,
+      dto
+    );
+    return data;
+  },
 
   getMe: async (): Promise<MeResponseDto> => {
     const response = await privateInstance.get<MeResponseDto>("/auth/me");

@@ -1,14 +1,14 @@
-import {Outlet, Link, useLocation, Navigate} from "react-router-dom";
+import { Outlet, Link, useLocation, Navigate } from "react-router-dom";
 import styles from "./AuthLayout.module.scss";
 import RoleSwitch from "../../components/auth/RoleSwitch/RoleSwitch";
 import SideImage from "../../components/auth/SideImage/SideImage";
-import {page} from "../../constants/page";
-import {AuthFormModeType} from "../../components/auth/types";
-import {accessTokenService} from "../../services/localStorage/accessTokenService";
+import { page } from "../../constants/page";
+import { AuthFormModeType } from "../../components/auth/types";
+import { accessTokenService } from "../../services/localStorage/accessTokenService";
 
 export default function AuthLayout() {
   if (accessTokenService.isExists()) {
-    return <Navigate to={page.home}/>
+    return <Navigate to={page.home} />;
   }
 
   const location = useLocation();
@@ -16,8 +16,10 @@ export default function AuthLayout() {
   const extractFormModeFromPath = (): AuthFormModeType => {
     if (location.pathname.includes("candidate")) return "candidate";
     if (location.pathname.includes("employer")) return "employer";
+    if (location.pathname.includes("forgot-password")) return "forgotPassword";
+    if (location.pathname.includes("reset-password")) return "resetPassword";
     return "login";
-  }
+  };
 
   const mode = extractFormModeFromPath();
 
@@ -30,11 +32,11 @@ export default function AuthLayout() {
           </Link>
         </div>
         <div className={styles.formWrapper}>
-          <Outlet/>
+          <Outlet />
         </div>
-        <RoleSwitch mode={mode}/>
+        <RoleSwitch mode={mode} />
       </div>
-      <SideImage mode={mode}/>
+      <SideImage mode={mode} />
     </div>
   );
 }
