@@ -8,7 +8,7 @@ import {EmployerRegistrationPage} from "./pages/auth/EmployerRegistrationPage";
 import GetMeLayout from "./layout/GetMeLayout/GetMeLayout";
 import RoleProtected from "./guards/RoleProtected";
 import NotFound from "./pages/NotFound/NotFound";
-import CompaniesProfilePage from "./pages/candidate/CandidateProfilePage/CandidateProfilePage";
+import CompaniesProfilePage from "./pages/candidate/CandidateCompaniesPage/CandidateCompaniesPage";
 import Vacancies from "./pages/candidate/Vacancies/Vacancies";
 import CandidateApplies from "./pages/candidate/CandidateApplies/CandidateApplies";
 import CandidateBase from "./pages/employer/CandidateBase/CandidateBase";

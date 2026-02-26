@@ -24,3 +24,12 @@ export type UpdateEmployerBio = {
   bio: string;
 }
 
+export type SearchParams = {
+  name?: string;
+  page?: number;
+  limit?: number;
+  sort?: "name" | "type" | "vacancies" | "id";
+  order?: "ASC" | "DESC";
+};
+
+
