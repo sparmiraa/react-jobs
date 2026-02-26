@@ -8,11 +8,12 @@ import {page} from "../../constants/page";
 
 export default function PublicLayout() {
   const dispatch = useAppDispatch();
+  const user = useAppSelector((s) => s.auth.user);
   const status = useAppSelector((s) => s.auth.status);
 
   useEffect(() => {
     const token = accessTokenService.get();
-    if (token) {
+    if (token && !user) {
       dispatch(getMeThunk());
     }
   }, [dispatch]);

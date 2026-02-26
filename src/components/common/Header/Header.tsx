@@ -2,17 +2,24 @@ import {NavLink, Link} from "react-router-dom";
 
 import styles from "./Header.module.scss";
 import {page} from "../../../constants/page";
-import {MeResponseDto} from "../../../api/authApi/authTypes";
+import {MeResponseDto, UserRole} from "../../../api/authApi/authTypes";
 import {useAppSelector} from "../../../redux/store";
 
-const roleNames: Record<string, string> = {
+const roleNames: Record<UserRole, string> = {
   CANDIDATE: "Кандидат",
   EMPLOYER: "Работодатель",
   ADMIN: "Админ",
 };
 
+const editPages: Record<UserRole, string> = {
+  CANDIDATE: page.candidateEdit,
+  EMPLOYER: page.employerEdit,
+  ADMIN: "/",
+};
+
 export default function Header() {
   const user = useAppSelector((s) => s.auth.user);
+
   const getAvatar = (user: MeResponseDto) => {
     return user.name.slice(0, 1).toUpperCase();
   };
@@ -98,16 +105,17 @@ export default function Header() {
                 </NavLink>
               </nav>
             )}
-
-            <div className={styles.userMenu}>
-              <div className={styles.userAvatar}>{getAvatar(user)}</div>
-              <div className={styles.userInfo}>
-                <span className={styles.userName}>{user.name}</span>
-                <span className={styles.userRole}>
-                  {roleNames[user.role] || user.role}
+            <Link to={editPages[user.role]}>
+              <div className={styles.userMenu}>
+                <div className={styles.userAvatar}>{getAvatar(user)}</div>
+                <div className={styles.userInfo}>
+                  <span className={styles.userName}>{user.name}</span>
+                  <span className={styles.userRole}>
+                  {roleNames[user.role]}
                 </span>
+                </div>
               </div>
-            </div>
+            </Link>
           </>
         )}
       </div>

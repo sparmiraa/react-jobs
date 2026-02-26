@@ -1,6 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getMeThunk } from "./userThunks";
-import { MeResponseDto } from "../../api/authApi/authTypes";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {getMeThunk} from "./userThunks";
+import {MeResponseDto} from "../../api/authApi/authTypes";
 
 interface AuthState {
   user: MeResponseDto | null;
@@ -20,7 +20,12 @@ const initialState: AuthState = {
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    changeName: (state, action: PayloadAction<string>) => {
+      if (!state.user) return;
+      state.user.name = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getMeThunk.pending, (state) => {
@@ -36,5 +41,7 @@ const userSlice = createSlice({
       });
   },
 });
+
+export const {changeName} = userSlice.actions;
 
 export default userSlice.reducer;
