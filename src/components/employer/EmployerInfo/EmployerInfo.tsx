@@ -4,6 +4,8 @@ import {UpdateEmployerInfo} from "../../../api/employerApi/employerTypes";
 import {useForm} from "react-hook-form";
 import {employerApi} from "../../../api/employerApi/employerApi";
 import styles from "../../../pages/candidate/CandidateEditPage/CandidateProfilePage.module.scss";
+import {changeName} from "../../../redux/user/userSlice";
+import {useAppDispatch} from "../../../redux/store";
 
 type Props = {
   employerInfo: UpdateEmployerInfo;
@@ -11,6 +13,7 @@ type Props = {
 };
 
 export default function EmployerInfo({ employerInfo, setEmployerInfo }: Props) {
+  const dispatch = useAppDispatch();
 
   const [isEditing, setIsEditing] = useState(false);
   const [cities, setCities] = useState<City[]>([]);
@@ -42,9 +45,9 @@ export default function EmployerInfo({ employerInfo, setEmployerInfo }: Props) {
     };
 
     await employerApi.updateEmployerInfo(payload);
-
     setEmployerInfo(payload);
     setIsEditing(false);
+    dispatch(changeName(payload.name));
   };
 
   const cancel = () => {
