@@ -40,20 +40,19 @@ function pickLogoStyle(index: number) {
   return variants[index % variants.length];
 }
 
-function pickLogoLetter(name?: string) {
-  if (!name || name.trim().length === 0) return "?";
+function pickLogoLetter(name: string) {
   return name.trim()[0].toUpperCase();
 }
 
 export default function CompaniesPage() {
-  const { register, handleSubmit, getValues, setValue } = useForm<FormValues>({
+  const { register, handleSubmit, getValues } = useForm<FormValues>({
     mode: "onSubmit",
     defaultValues: { name: "" },
   });
 
   const [items, setItems] = useState<EmployerItem[]>([]);
-  const [total, setTotal] = useState(0);
 
+  const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const limit = 12;
 
@@ -84,8 +83,7 @@ export default function CompaniesPage() {
       setPage(res.page);
 
       setItems((prev) =>
-        mode === "replace" ? res.data : [...prev, ...res.data],
-      );
+          mode === "replace" ? res.data : [...prev, ...res.data]  );
     } catch (e: any) {
       setError(e?.message ?? "Ошибка загрузки компаний");
     } finally {
@@ -98,7 +96,7 @@ export default function CompaniesPage() {
     fetchPage(1, "replace");
   }, []);
 
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = async () => {
     await fetchPage(1, "replace");
   };
 
@@ -122,6 +120,7 @@ export default function CompaniesPage() {
         <form className={styles.searchBar} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.searchInputWrap}>
             <InputField
+                needMargin={false}
               placeholder="Например: Яндекс, FinTech или E-commerce..."
               {...register("name")}
             />

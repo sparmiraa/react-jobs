@@ -17,7 +17,7 @@ export function CandidateRegistrationPage() {
       const res = await authApi.registerCandidate(data);
       accessTokenService.set(res.accessToken);
       await dispatch(getMeThunk());
-      navigate("/vacancies", { replace: true });
+      navigate(page.vacancies, { replace: true });
   };
   return (
     <>

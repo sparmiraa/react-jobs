@@ -9,11 +9,9 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 10px;
 }
 
 .btnSubmit:hover {
   background-color: var(--primary-hover);
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
 }
