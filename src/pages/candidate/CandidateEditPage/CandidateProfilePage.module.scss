@@ -484,6 +484,34 @@ textarea.formControl {
   color: var(--danger);
 }
 
+.skillPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--input-border);
+
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s ease;
+
+  input {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;

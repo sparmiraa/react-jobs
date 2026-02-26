@@ -1,0 +1,27 @@
+.loadMoreContainer {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .btnLoadMore {
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-main);
+    padding: 12px 30px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  
+    &:hover:not(:disabled) {
+      border-color: var(--primary);
+      color: var(--primary);
+      background-color: #eef2ff;
+    }
+  
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
