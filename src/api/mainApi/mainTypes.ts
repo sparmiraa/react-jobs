@@ -1,14 +1,14 @@
-interface City {
+export interface City {
   id: number;
   name: string;
 }
 
-interface Skill {
+export interface Skill {
   id: number;
   name: string;
 }
 
-interface EmployerType {
+export interface EmployerType {
   id: number;
   name: string;
 }

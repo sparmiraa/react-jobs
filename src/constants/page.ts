@@ -17,5 +17,5 @@ export const page = {
   employerEdit: "/employer/edit",
   employerMyApplies: "/employer/my-applies",
   candidateBase: "/candidate-base",
-  myVacancies: "/my-vacancies",
+  myVacancies: "/employer/vacancies",
 };
