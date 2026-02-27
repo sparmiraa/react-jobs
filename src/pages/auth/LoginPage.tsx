@@ -17,11 +17,9 @@ export function LoginPage() {
     accessTokenService.set(res.accessToken);
     const user = await dispatch(getMeThunk()).unwrap();
     if (user.role === "EMPLOYER") {
-      navigate("/my-vacancies", {replace: true});
+      navigate(page.myVacancies, {replace: true});
     } else if (user.role === "CANDIDATE") {
-      navigate("/vacancies", {replace: true});
-    } else {
-      navigate("/", {replace: true});
+      navigate(page.vacancies, {replace: true});
     }
   };
   return (

@@ -20,9 +20,8 @@ function formatSalary(v: VacancyListItem) {
   const to = v.salaryTo;
 
   if (from != null && to != null)
-    return `${from.toLocaleString("ru-RU")} — ${to.toLocaleString("ru-RU")} ₽`;
-  if (from != null) return `от ${from.toLocaleString("ru-RU")} ₽`;
-  if (to != null) return `до ${to.toLocaleString("ru-RU")} ₽`;
+    return `${from} — ${to} ₸`;
+  if (from) return `от ${from} ₸`;
   return "Зарплата не указана";
 }
 
