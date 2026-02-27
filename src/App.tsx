@@ -23,6 +23,7 @@ import MyVacanciesPage from "./pages/employer/MyVacanciesPage/MyVacanciesPage";
 import VacancyUpsertPage from "./pages/employer/VacancyUpsertPage/VacancyUpsertPage";
 import VacanciesPage from "./pages/candidate/VacanciesPage/VacanciesPage";
 import VacancyViewPage from "./pages/candidate/VacancyViewPage/VacancyViewPage";
+import CompanyViewPage from "./pages/candidate/CompanyViewPage/CompanyViewPage";
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
             <Route path="companies" element={<CompaniesProfilePage />} />
             <Route path="vacancies" element={<VacanciesPage />} />
             <Route path="vacancies/:id" element={<VacancyViewPage />} />
+            <Route path="companies/:id" element={<CompanyViewPage />} />
           </Route>
 
           <Route element={<RoleProtected allow={["EMPLOYER", "ADMIN"]} />}>

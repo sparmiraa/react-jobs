@@ -1,10 +1,22 @@
 import { privateInstance } from "../axios";
-import {
+import type {
   EmployerProfileDTO,
   SearchParams,
   UpdateEmployerBio,
   UpdateEmployerInfo,
 } from "./employerTypes";
+
+export type EmployerPublicDto = {
+  id: number;
+  name: string;
+  shortBio: string | null;
+  bio: string | null;
+  cityId: number | null;
+  cityName: string | null;
+  employeesCount: number | null;
+  type: { id: number; name: string } | null;
+  vacanciesCount: number; // активные вакансии
+};
 
 export const employerApi = {
   getCurrentEmployerProfile: async () => {
@@ -24,5 +36,10 @@ export const employerApi = {
   search: async (params: SearchParams) => {
     const res = await privateInstance.get("/employer/search", { params });
     return res.data;
+  },
+
+  getPublicById: async (id: number): Promise<EmployerPublicDto> => {
+    const { data } = await privateInstance.get(`/employer/${id}`);
+    return data as EmployerPublicDto;
   },
 };

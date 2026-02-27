@@ -1,6 +1,7 @@
 import { privateInstance } from "../axios";
 import type {
   GetMyVacanciesResponse,
+  VacancyCandidateListResponse,
   VacancyDetails,
   VacancyUpsertDto,
 } from "./vacancyTypes";
@@ -147,5 +148,16 @@ export const vacancyApi = {
   async getPublicById(id: number): Promise<VacancyViewDto> {
     const { data } = await privateInstance.get(`/vacancies/${id}`);
     return data;
+  },
+
+  async getAllPublicByEmployerId(
+    employerId: number,
+    params?: { page?: number; limit?: number },
+  ): Promise<VacancyCandidateListResponse> {
+    const { data } = await privateInstance.get(
+      `/vacancies/company/${employerId}`,
+      { params },
+    );
+    return data as VacancyCandidateListResponse;
   },
 };

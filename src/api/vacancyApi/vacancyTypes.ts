@@ -13,7 +13,7 @@ export type VacancyListItem = {
   salaryFrom: number | null;
   salaryTo: number | null;
   isActive: boolean;
-  createdAt: string; 
+  createdAt: string;
 };
 
 export type GetMyVacanciesResponse = {
@@ -35,7 +35,7 @@ export type VacancyDetails = {
   is_active: boolean;
   createdAt: string;
   updatedAt: string;
-  skills: number[]; 
+  skills: number[];
 };
 
 export type VacancyUpsertDto = {
@@ -48,4 +48,28 @@ export type VacancyUpsertDto = {
   responsibilities: string | null;
   assumptions: string | null;
   skillIds: number[];
+};
+
+export type VacancySkillDto = { id: number; name: string };
+
+export type VacancyCandidateListItem = {
+  id: number;
+  title: string;
+
+  employerId: number | null;
+  employerName: string | null;
+
+  cityId: number | null;
+  cityName: string | null;
+
+  salaryFrom: number | null;
+  salaryTo: number | null;
+
+  createdAt: string;
+  skills: VacancySkillDto[];
+};
+
+export type VacancyCandidateListResponse = {
+  items: VacancyCandidateListItem[];
+  pagination: Pagination;
 };
