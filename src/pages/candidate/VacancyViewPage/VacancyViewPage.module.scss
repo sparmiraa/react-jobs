@@ -1,0 +1,239 @@
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.topNav {
+  padding: 30px 0 20px 0;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--primary);
+    transform: translateX(-2px);
+  }
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  padding-bottom: 80px;
+}
+
+.mainCard {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.header {
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.salary {
+  font-size: 22px;
+  font-weight: 900;
+  color: #059669;
+  margin-bottom: 18px;
+}
+
+.meta {
+  display: flex;
+  gap: 18px;
+  color: var(--text-muted);
+  font-size: 15px;
+  flex-wrap: wrap;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.skillsSection {
+  margin-bottom: 32px;
+
+  h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: var(--text-main);
+  }
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: #eef2ff;
+  color: var(--primary);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.block {
+  margin-bottom: 28px;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--text-main);
+  }
+
+  p {
+    color: #374151;
+    font-size: 16px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    margin: 0;
+  }
+}
+
+.sidebar {
+  position: sticky;
+  top: 90px;
+  align-self: start;
+}
+
+.actionCard {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.employerInfo {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.employerLogo {
+  width: 60px;
+  height: 60px;
+  background: var(--input-bg);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin: 0 auto 12px auto;
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.employerName {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.employerDesc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 12px;
+  line-height: 1.5;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-color);
+}
+
+.btnApply {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: default;
+  }
+}
+
+.status {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #059669;
+    border-radius: 50%;
+  }
+}
+
+.loading,
+.errorBox {
+  margin-top: 20px;
+  padding: 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  color: var(--text-muted);
+}
+
+.errorBox {
+  color: #b91c1c;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sidebar {
+    position: static;
+    order: -1;
+  }
+
+  .mainCard {
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+}

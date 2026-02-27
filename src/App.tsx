@@ -9,7 +9,7 @@ import GetMeLayout from "./layout/GetMeLayout/GetMeLayout";
 import RoleProtected from "./guards/RoleProtected";
 import NotFound from "./pages/NotFound/NotFound";
 import CompaniesProfilePage from "./pages/candidate/CandidateCompaniesPage/CandidateCompaniesPage";
-import Vacancies from "./pages/candidate/Vacancies/Vacancies";
+import Vacancies from "./pages/candidate/VacanciesPage/VacanciesPage";
 import CandidateApplies from "./pages/candidate/CandidateApplies/CandidateApplies";
 import CandidateBase from "./pages/employer/CandidateBase/CandidateBase";
 import MyVacancies from "./pages/employer/MyVacancies/MyVacancies";
@@ -21,6 +21,8 @@ import { ForgotPasswordPage } from "./pages/auth/ForgotPasswordPage";
 import { ResetPasswordPage } from "./pages/auth/ResetPasswordPage";
 import MyVacanciesPage from "./pages/employer/MyVacanciesPage/MyVacanciesPage";
 import VacancyUpsertPage from "./pages/employer/VacancyUpsertPage/VacancyUpsertPage";
+import VacanciesPage from "./pages/candidate/VacanciesPage/VacanciesPage";
+import VacancyViewPage from "./pages/candidate/VacancyViewPage/VacancyViewPage";
 
 function App() {
   return (
@@ -52,7 +54,8 @@ function App() {
               element={<CandidateApplies />}
             />
             <Route path="companies" element={<CompaniesProfilePage />} />
-            <Route path="vacancies" element={<Vacancies />} />
+            <Route path="vacancies" element={<VacanciesPage />} />
+            <Route path="vacancies/:id" element={<VacancyViewPage />} />
           </Route>
 
           <Route element={<RoleProtected allow={["EMPLOYER", "ADMIN"]} />}>
